@@ -10,7 +10,7 @@ class Specinfra::Helper::DetectOs::Coreos < Specinfra::Helper::DetectOs
           release = line.split('=').last.strip if line =~ /^DISTRIB_RELEASE=/
         end
       end
-      distro ||= 'coreos'
+      distro = 'coreos'
       release ||= nil
       { :family => distro.gsub(/[^[:alnum:]]/, '').downcase, :release => release }
     end

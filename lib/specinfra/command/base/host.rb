@@ -18,6 +18,10 @@ class Specinfra::Command::Base::Host < Specinfra::Command::Base
       end
     end
 
+    def get_ping_statistics(host, timeout, count)
+      "ping -w #{escape(timeout)} -c #{escape(timeout)} #{escape(host)} | tail -3"
+    end
+
     # getent hosts on a dualstack machine will most likely 
     # return the ipv6 address to ensure one can more cleary
     # define the outcome the ipv{4,6}_address are used. 
